@@ -11,6 +11,7 @@
     "allowJs": true,
     "module": "esnext",
     "target": "es5",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "isolatedModules": true,
     "lib": [

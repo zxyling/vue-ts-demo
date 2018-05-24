@@ -9,9 +9,9 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator'
 import axios from 'axios';
-import {MyMixin} from '../mixin/demo1.js';
+import {MyMixin} from '../../mixin/demo1.js';
 import { mixins } from 'vue-class-component';
 
 @Component
@@ -25,8 +25,10 @@ export default class HelloWorld extends mixins(MyMixin) {
     onNameChanged() {
         console.log('变化');
     }
-
+    // data
     msg = 'hello';
+
+    //生命周期函数
     mounted() {
         console.log("mounted");
     }			

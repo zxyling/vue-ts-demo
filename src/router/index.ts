@@ -3,9 +3,13 @@ import Router from 'vue-router';
 
 
 const Home = () =>  import('@/pages/home/Home.vue');
-const HelloWorld = () => import('@/components/HelloWorld.vue');
-const Demo1 = () => import('@/components/demo1.vue');
-const Demo2 = () => import('@/components/demo2.vue');
+
+
+// 测试组件
+const HelloWorld = () => import('@/components/demo/HelloWorld.vue');
+const Demo1 = () => import('@/components/demo/demo1.vue');
+const Demo2 = () => import('@/components/demo/demo2.vue');
+const Demo3 = () => import('@/components/demo/demo3.vue');
 
 
 
@@ -27,6 +31,11 @@ export default new Router({
         path: '/demo2',
         name: 'Demo2',
         component: Demo2
+    },
+    {
+      path: '/demo3',
+      name: 'Demo3',
+      component: Demo3
     }
   ]
 });

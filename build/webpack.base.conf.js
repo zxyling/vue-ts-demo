@@ -32,7 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.ts', 'scss'],
+    extensions: ['.js', '.vue', '.json', '.ts', 'scss', '.tsx'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
@@ -43,7 +43,12 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: Object.assign(vueLoaderConfig, {
+          loaders: {
+            ts: "ts-loader",
+            tsx: "babel-loader!ts-loader"
+          }
+        })
       },
       {
         test: /\.js$/,
@@ -57,6 +62,17 @@ module.exports = {
         options: {
           appendTsSuffixTo: [/\.vue$/],
         }
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+          "babel-loader",
+          {
+            loader: "ts-loader",
+            options: { appendTsxSuffixTo: [/\.vue$/] }
+          }
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

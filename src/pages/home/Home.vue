@@ -7,9 +7,8 @@
     </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue';
-import Component from 'vue-class-component'
+import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator'
+import HelloWorld from '@/components/demo/HelloWorld.vue';
 import {Button} from 'iview';
 
 Vue.component('Button', Button);
